@@ -8,21 +8,21 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private int playerNeededToFinishTheGame;
     [SerializeField] private AlphaValueEvent alphaValueEvent;
 
-    private List<ColorOwner> goalReachedPlayer = new List<ColorOwner>();
+    private List<ColorOwner> goalReachedPlayers = new List<ColorOwner>();
 
     public void RegisterColorOwner(ColorOwner colorOwner) {
-        if(!goalReachedPlayer.Contains(colorOwner)) {
-            goalReachedPlayer.Add(colorOwner);
+        if(!goalReachedPlayers.Contains(colorOwner)) {
+            goalReachedPlayers.Add(colorOwner);
         }
 
-        if(goalReachedPlayer.Count >= playerNeededToFinishTheGame) {
+        if(goalReachedPlayers.Count >= playerNeededToFinishTheGame) {
             LevelSolved();
         }
     }
 
     public void DeregisterColorOwner(ColorOwner colorOwner) {
-        if(goalReachedPlayer.Contains(colorOwner)) {
-            goalReachedPlayer.Remove(colorOwner);
+        if(goalReachedPlayers.Contains(colorOwner)) {
+            goalReachedPlayers.Remove(colorOwner);
         }
     }
 
