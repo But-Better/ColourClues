@@ -1,6 +1,7 @@
 using DefaultNamespace;
 using Event;
 using UnityEngine;
+
 /// <summary>
 /// A basic component that sets the color of the SpriteRenderer to the assigned color of the ColorClue on Start().
 ///
@@ -11,9 +12,9 @@ public class ColorObject : BaseGameEventListener<ColorClue> {
 
     [SerializeField] private ColorClue colorClue;
 
-    private SpriteRenderer spriteRenderer;
-
     public ColorClue ColorClue => colorClue;
+
+    private SpriteRenderer spriteRenderer;
 
     private void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
