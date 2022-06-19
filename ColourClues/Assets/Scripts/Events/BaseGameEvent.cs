@@ -9,21 +9,20 @@ namespace Event {
     }
 
     [CreateAssetMenu(menuName = "ScriptableObjects/Event/BaseGameEvent")]
-    public sealed class BaseGameEvent : RootGameEvent {
+    public abstract class BaseGameEvent : RootGameEvent {
         private readonly List<BaseGameEventListener> eventListeners = new List<BaseGameEventListener>();
 
-
-        public void Raise() {
+        public virtual void Raise() {
             for(var i = eventListeners.Count - 1; i >= 0; i--)
                 eventListeners[i].OnEventRaised();
         }
 
-        public void RegisterListener(BaseGameEventListener listener) {
+        public virtual void RegisterListener(BaseGameEventListener listener) {
             if(!eventListeners.Contains(listener))
                 eventListeners.Add(listener);
         }
 
-        public void UnregisterListener(BaseGameEventListener listener) {
+        public virtual void UnregisterListener(BaseGameEventListener listener) {
             if(eventListeners.Contains(listener))
                 eventListeners.Remove(listener);
         }
@@ -32,18 +31,17 @@ namespace Event {
     public abstract class BaseGameEvent<T1> : RootGameEvent {
         private readonly List<BaseGameEventListener<T1>> eventListeners = new List<BaseGameEventListener<T1>>();
 
-
-        public void Raise(T1 value) {
+        public virtual void Raise(T1 value) {
             for(var i = eventListeners.Count - 1; i >= 0; i--)
                 eventListeners[i].OnEventRaised(value);
         }
 
-        public void RegisterListener(BaseGameEventListener<T1> listener) {
+        public virtual void RegisterListener(BaseGameEventListener<T1> listener) {
             if(!eventListeners.Contains(listener))
                 eventListeners.Add(listener);
         }
 
-        public void UnregisterListener(BaseGameEventListener<T1> listener) {
+        public virtual void UnregisterListener(BaseGameEventListener<T1> listener) {
             if(eventListeners.Contains(listener))
                 eventListeners.Remove(listener);
         }
@@ -52,17 +50,17 @@ namespace Event {
     public abstract class BaseGameEvent<T1, T2> : RootGameEvent {
         private readonly List<BaseGameEventListener<T1, T2>> eventListeners = new List<BaseGameEventListener<T1, T2>>();
 
-        public void Raise(T1 value1, T2 value2) {
+        public virtual void Raise(T1 value1, T2 value2) {
             for(var i = eventListeners.Count - 1; i >= 0; i--)
                 eventListeners[i].OnEventRaised(value1, value2);
         }
 
-        public void RegisterListener(BaseGameEventListener<T1, T2> listener) {
+        public virtual void RegisterListener(BaseGameEventListener<T1, T2> listener) {
             if(!eventListeners.Contains(listener))
                 eventListeners.Add(listener);
         }
 
-        public void UnregisterListener(BaseGameEventListener<T1, T2> listener) {
+        public virtual void UnregisterListener(BaseGameEventListener<T1, T2> listener) {
             if(eventListeners.Contains(listener))
                 eventListeners.Remove(listener);
         }
@@ -71,17 +69,17 @@ namespace Event {
     public abstract class BaseGameEvent<T1, T2, T3> : RootGameEvent {
         private readonly List<BaseGameEventListener<T1, T2, T3>> eventListeners = new List<BaseGameEventListener<T1, T2, T3>>();
 
-        public void Raise(T1 value1, T2 value2, T3 value3) {
+        public virtual void Raise(T1 value1, T2 value2, T3 value3) {
             for(var i = eventListeners.Count - 1; i >= 0; i--)
                 eventListeners[i].OnEventRaised(value1, value2, value3);
         }
 
-        public void RegisterListener(BaseGameEventListener<T1, T2, T3> listener) {
+        public virtual void RegisterListener(BaseGameEventListener<T1, T2, T3> listener) {
             if(!eventListeners.Contains(listener))
                 eventListeners.Add(listener);
         }
 
-        public void UnregisterListener(BaseGameEventListener<T1, T2, T3> listener) {
+        public virtual void UnregisterListener(BaseGameEventListener<T1, T2, T3> listener) {
             if(eventListeners.Contains(listener))
                 eventListeners.Remove(listener);
         }

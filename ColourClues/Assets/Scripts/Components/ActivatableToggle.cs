@@ -5,17 +5,17 @@ public class ActivatableToggle : ActivatableObject {
     [SerializeField] private GameObject defaultOffItem;
 
     private void Awake() {
-        defaultOffItem?.gameObject.SetActive(false);
-        defaultOnItem?.gameObject.SetActive(true);
+        defaultOffItem?.SetActive(false);
+        defaultOnItem?.SetActive(true);
     }
 
     public override void Activate() {
-        defaultOffItem?.gameObject.SetActive(true);
-        defaultOnItem?.gameObject.SetActive(false);
+        defaultOffItem?.SetActive(true);
+        defaultOnItem?.SetActive(false);
     }
 
     public override void Deactivate() {
-        defaultOffItem?.gameObject.SetActive(false);
-        defaultOnItem?.gameObject.SetActive(true);
+        defaultOffItem?.SetActive(false);
+        defaultOnItem?.SetActive(true);
     }
 }

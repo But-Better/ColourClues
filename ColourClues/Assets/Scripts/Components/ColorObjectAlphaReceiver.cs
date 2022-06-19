@@ -1,6 +1,7 @@
 using DefaultNamespace.Models;
 using Event;
 using UnityEngine;
+
 /// <summary>
 /// A basic component that sets the alpha value received from the raised event.
 /// </summary>
@@ -21,6 +22,8 @@ public class ColorObjectAlphaReceiver : BaseGameEventListener<AlphaValue> {
 
         var colorClue = colorObject.ColorClue;
 
-        spriteRenderer.color = new Color(colorClue.Color.r, colorClue.Color.g, colorClue.Color.b, value.Value);
+        if(spriteRenderer.color.a < value.Value) {
+            spriteRenderer.color = new Color(colorClue.Color.r, colorClue.Color.g, colorClue.Color.b, value.Value);
+        }
     }
 }
