@@ -9,12 +9,12 @@ public class ActivatableToggle : ActivatableObject {
         defaultOnItem?.SetActive(true);
     }
 
-    public override void Activate() {
+    public override void Activate(ColorOwner colorOwner) {
         defaultOffItem?.SetActive(true);
         defaultOnItem?.SetActive(false);
     }
 
-    public override void Deactivate() {
+    public override void Deactivate(ColorOwner colorOwner) {
         defaultOffItem?.SetActive(false);
         defaultOnItem?.SetActive(true);
     }

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: An event that gets raised when the visualised color of the
     world gets Changed.
+  stateful: 1

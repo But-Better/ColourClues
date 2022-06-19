@@ -7,7 +7,6 @@ public class ColorButton : MonoBehaviour {
 
     private ColorOwner currentActivator;
 
-
     private void OnCollisionEnter2D(Collision2D other) {
         other.gameObject.TryGetComponent(out ColorOwner collidedColorOwner);
 
@@ -20,7 +19,7 @@ public class ColorButton : MonoBehaviour {
         }
 
         currentActivator = collidedColorOwner;
-        activatableObject.Activate();
+        activatableObject.Activate(collidedColorOwner);
     }
 
     private void OnCollisionExit2D(Collision2D other) {
@@ -34,7 +33,7 @@ public class ColorButton : MonoBehaviour {
             return;
         }
 
+        activatableObject.Deactivate(currentActivator);
         currentActivator = null;
-        activatableObject.Deactivate();
     }
 }

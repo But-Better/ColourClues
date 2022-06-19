@@ -7,6 +7,7 @@ using UnityEngine;
 /// The components sets the alpha of this component to 0 when the value of the ColorClueEvent is not equal the assigned ColorClue.
 /// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
+[ExecuteInEditMode]
 public class ColorObject : BaseGameEventListener<ColorClue> {
 
     [SerializeField] private ColorClue colorClue;
