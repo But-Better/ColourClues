@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: c2782c08f34f493b8b5c6f137b1b13ee
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerSpawnedEvent: {fileID: 11400000, guid: b89d6110838e2f04e96a4fb37780c2cd, type: 2}
+  - playerDespawnedEvent: {fileID: 11400000, guid: 4e673d56d479bf149ac9e1538dd171f1, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

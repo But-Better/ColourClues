@@ -1,7 +1,5 @@
 ﻿using DefaultNamespace;
+using Event;
 
-namespace Event {
-    public class ColorClueEventListener : BaseGameEventListener<ColorClue> {
-    }
-
+public class ColorClueEventListener : BaseGameEventListener<ColorClue> {
 }
