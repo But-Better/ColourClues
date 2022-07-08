@@ -2253,7 +2253,6 @@ GameObject:
   - component: {fileID: 1906409633}
   - component: {fileID: 1906409632}
   - component: {fileID: 1906409631}
-  - component: {fileID: 1906409630}
   m_Layer: 0
   m_Name: BluePlayer
   m_TagString: Untagged
@@ -2261,20 +2260,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1906409630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906409629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 530a5bff7251444d68d5e7a91174779a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 1.6
-  jumpPower: 1.6
 --- !u!114 &1906409631
 MonoBehaviour:
   m_ObjectHideFlags: 0
