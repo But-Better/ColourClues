@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 69711102}
   - component: {fileID: 69711101}
   - component: {fileID: 69711100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RedObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 552308204}
   - component: {fileID: 552308203}
   - component: {fileID: 552308202}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1256,6 +1256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 1.6
   jumpPower: 1.6
+  ladders: []
 --- !u!114 &1349700149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1410,7 +1411,7 @@ GameObject:
   - component: {fileID: 1431099590}
   - component: {fileID: 1431099589}
   - component: {fileID: 1431099593}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GreenObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -1919,6 +1920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   jumpPower: 5
+  ladders: []
 --- !u!1 &1986830569
 GameObject:
   m_ObjectHideFlags: 0
