@@ -10,13 +10,14 @@ using View;
 
 public class SaveMode : MonoBehaviour
 {
-    [field: SerializeField] private GameObject textForward;
-    [field: SerializeField] private GameObject textBackward;
-    [field: SerializeField] private GameObject textLeft;
-    [field: SerializeField] private GameObject textRight;
-    [field: SerializeField] private GameObject textPause;
-    [field: SerializeField] private GameObject textEmotes;
-
+    [field: SerializeField] private TextMeshProUGUI textForward;
+    [field: SerializeField] private TextMeshProUGUI textBackward;
+    [field: SerializeField] private TextMeshProUGUI textLeft;
+    [field: SerializeField] private TextMeshProUGUI textRight;
+    [field: SerializeField] private TextMeshProUGUI textPause;
+    [field: SerializeField] private TextMeshProUGUI textEmotes;
+    [field: SerializeField] private TextMeshProUGUI textIP;
+    
     private string PersistentPath { get; set; }
 
     private string Path { get; set; }
@@ -25,30 +26,30 @@ public class SaveMode : MonoBehaviour
     {
         SetPaths();
     }
-
+    
     public void Save()
     {
         var newDto = new KeysDto
         {
-            TextForward = GetTextFromInput(textForward),
-            TextBackward = GetTextFromInput(textBackward),
-            TextLeft = GetTextFromInput(textLeft),
-            TextRight = GetTextFromInput(textRight),
-            TextPause = GetTextFromInput(textPause),
-            TextEmotes = GetTextFromInput(textEmotes)
+            TextForward = CleanUp(textForward),
+            TextBackward = CleanUp(textBackward),
+            TextLeft = CleanUp(textLeft),
+            TextRight = CleanUp(textRight),
+            TextPause = CleanUp(textPause),
+            TextEmotes = CleanUp(textEmotes),
+            TextIP = CleanUp(textIP),
         };
         Debug.Log(newDto.TextBackward);
         Debug.Log(newDto.TextForward);
-        
+
         SaveData(newDto);
     }
-    
-    private string GetTextFromInput(GameObject o)
+
+    private string CleanUp(TextMeshProUGUI o)
     {
-        var text = o.GetComponent<TextMeshProUGUI>();
-        return text.text.Replace("\n", "").Replace("\r", "");
+        return o.text.Replace("\n", "").Replace("\r", "");
     }
-    
+
     private void SetPaths()
     {
         Path = Application.dataPath + System.IO.Path.AltDirectorySeparatorChar + "KeysData.json";
@@ -65,13 +66,10 @@ public class SaveMode : MonoBehaviour
         writer.Write(json);
     }
 
-    public void LoadData()
+    public KeysDto GetLoadedData()
     {
         using var reader = new StreamReader(PersistentPath);
         var json = reader.ReadToEnd();
-
-        var data = JsonUtility.FromJson<KeysDto>(json);
-        Debug.Log(data.ToString());
+        return JsonUtility.FromJson<KeysDto>(json);
     }
-    
 }
