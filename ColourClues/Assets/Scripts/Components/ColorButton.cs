@@ -1,4 +1,5 @@
-﻿using DefaultNamespace;
+﻿using System;
+using DefaultNamespace;
 using UnityEngine;
 public class ColorButton : MonoBehaviour {
 
@@ -22,7 +23,7 @@ public class ColorButton : MonoBehaviour {
         activatableObject.Activate(collidedColorOwner);
     }
 
-    private void OnCollisionExit2D(Collision2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         other.gameObject.TryGetComponent(out ColorOwner collidedColorOwner);
 
         if(collidedColorOwner == null) {
@@ -30,6 +31,10 @@ public class ColorButton : MonoBehaviour {
         }
 
         if(currentActivator == null) {
+            return;
+        }
+
+        if(currentActivator != collidedColorOwner) {
             return;
         }
 
