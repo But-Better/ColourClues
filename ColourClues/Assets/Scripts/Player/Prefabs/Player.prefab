@@ -201,4 +201,4 @@ MonoBehaviour:
   airControl: 1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 8

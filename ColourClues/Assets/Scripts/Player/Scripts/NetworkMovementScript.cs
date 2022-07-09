@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Mirror;
 using UnityEngine;
 using UnityEngine.Events;
@@ -74,11 +75,25 @@ public class NetworkMovementScript : NetworkBehaviour
 	// ReSharper disable Unity.PerformanceAnalysis
 	private void CheckForGround()
 	{
+		var middlePosition = transform.position;
+		var boxColliderWidth = _mBoxCollider.size.x;
+
+		var mostLeft = middlePosition - new Vector3(boxColliderWidth / 2, 0);
+		var mostRight = middlePosition + new Vector3(boxColliderWidth / 2, 0);
+		
 		// Cast a ray straight down.
-		var rayDown = Physics2D.Raycast(transform.position, Vector2.down, Single.PositiveInfinity, groundLayer.value);
+		var rayMiddleDown = Physics2D.Raycast(middlePosition, Vector2.down, Single.PositiveInfinity, groundLayer.value);
+		var rayMostLeftDown = Physics2D.Raycast(mostLeft, Vector2.down, Single.PositiveInfinity, groundLayer.value);
+		var rayMostRightDown = Physics2D.Raycast(mostRight, Vector2.down, Single.PositiveInfinity, groundLayer.value);
 
 		var distanceToGround = _mBoxCollider.size.y;
-		
-		_grounded = rayDown.distance <= (0f + distanceToGround);
+
+
+		_grounded = anyRayHasDistanceOf(distanceToGround, rayMiddleDown, rayMostLeftDown, rayMostRightDown);
+	}
+
+	private bool anyRayHasDistanceOf(float maxDistance, params RaycastHit2D[] rays)
+	{
+		return rays.Any(ray => ray.distance <= maxDistance);
 	}
 }
