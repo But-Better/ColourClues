@@ -7,6 +7,7 @@ public class LoadScene : MonoBehaviour
 {
     public void loadScene(int index)
     {
+        Debug.Log("index was loaded");
         SceneManager.LoadScene(index);
     }
 }

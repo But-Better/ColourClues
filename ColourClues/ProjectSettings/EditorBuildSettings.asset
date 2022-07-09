@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level2/Level2.unity
     guid: 6fbd0cb1c6ba24dab960132c8d49df04
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorial/ColorTut/ColorTutorial.unity
+    guid: 2033facf4735e4d6287ea860aaa4e080
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorial/MovingTut/MovingTutorial.unity
+    guid: df2fae6521cc24f9e913397fe34e21c3
   m_configObjects: {}
