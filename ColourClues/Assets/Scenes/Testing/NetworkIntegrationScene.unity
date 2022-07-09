@@ -2919,7 +2919,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2082825370}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: RegisterColorOwner
+        m_MethodName: ColorOwnerEnterGoal
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2934,7 +2934,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2082825370}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: DeregisterColorOwner
+        m_MethodName: ColorOwnerLeaveGoal
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

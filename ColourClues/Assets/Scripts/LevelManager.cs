@@ -5,12 +5,13 @@ using Event;
 using UnityEngine;
 public class LevelManager : MonoBehaviour {
 
+    [SerializeField] private List<GameObject> availablePlayer = new List<GameObject>();
     [SerializeField] private int playerNeededToFinishTheGame;
     [SerializeField] private AlphaValueEvent alphaValueEvent;
 
     private List<ColorOwner> goalReachedPlayers = new List<ColorOwner>();
 
-    public void RegisterColorOwner(ColorOwner colorOwner) {
+    public void ColorOwnerEnterGoal(ColorOwner colorOwner) {
         if(!goalReachedPlayers.Contains(colorOwner)) {
             goalReachedPlayers.Add(colorOwner);
         }
@@ -20,7 +21,7 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
-    public void DeregisterColorOwner(ColorOwner colorOwner) {
+    public void ColorOwnerLeaveGoal(ColorOwner colorOwner) {
         if(goalReachedPlayers.Contains(colorOwner)) {
             goalReachedPlayers.Remove(colorOwner);
         }
@@ -32,8 +33,17 @@ public class LevelManager : MonoBehaviour {
         StartCoroutine(Fade());
     }
 
+    private GameObject GetAvailablePlayer() {
+        var randomPlayerIndex = Random.Range(0, availablePlayer.Count);
+
+        var player = availablePlayer[randomPlayerIndex];
+        availablePlayer.Remove(player);
+
+        return player;
+    }
+
     private IEnumerator Fade() {
-        float alpha = 0f;
+        var alpha = 0f;
 
         while(alpha < 1f) {
             alpha += Time.deltaTime / 2;
