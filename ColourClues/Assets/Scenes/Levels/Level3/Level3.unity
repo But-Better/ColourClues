@@ -570,7 +570,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249141900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.7036, y: -1.3644, z: 0}
+  m_LocalPosition: {x: -4.759, y: -1.398, z: 0}
   m_LocalScale: {x: 0.16, y: 0.16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8102,8 +8102,11 @@ GameObject:
   - component: {fileID: 1689793299}
   - component: {fileID: 1689793298}
   - component: {fileID: 1689793297}
+  - component: {fileID: 1689793301}
+  - component: {fileID: 1689793303}
+  - component: {fileID: 1689793302}
   m_Layer: 0
-  m_Name: neededTogglerForRedDoor
+  m_Name: fallingCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8141,7 +8144,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls: []
-  colorClue: {fileID: 11400000, guid: 3077016aa9ffb02409a715bd116ecc55, type: 2}
+  colorClue: {fileID: 11400000, guid: 617f1d1578440484988b57d31275a160, type: 2}
 --- !u!212 &1689793299
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8184,7 +8187,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8202,13 +8205,70 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689793296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.61, y: -0.24, z: 0.023328554}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -7.577, y: -0.761, z: 0.023328554}
+  m_LocalScale: {x: 1.6, y: 0.16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1131850433}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1689793301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689793296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6652e779b3a4d34a81fa17c7b075f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.32
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.556
+--- !u!114 &1689793302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689793296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a8ac4d2577643b4bf633eba9ca5bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RedPlayer: {fileID: 249141900}
+  GreenPlayer: {fileID: 1349700147}
+  respawnLocationRed: {x: -4.41, y: -1.5, z: 0}
+  respawnLocationGreen: {x: -4.41, y: -1.5, z: 0}
+--- !u!61 &1689793303
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689793296}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1955070509
 GameObject:
   m_ObjectHideFlags: 0
