@@ -6,8 +6,10 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour {
 
     [SerializeField] private List<GameObject> availablePlayer = new List<GameObject>();
+
     [SerializeField] private int playerNeededToFinishTheGame;
     [SerializeField] private AlphaValueEvent alphaValueEvent;
+    [SerializeField] private ColorClueEvent assignLevelColorEvent;
 
     private List<ColorOwner> goalReachedPlayers = new List<ColorOwner>();
 
@@ -33,11 +35,13 @@ public class LevelManager : MonoBehaviour {
         StartCoroutine(Fade());
     }
 
-    private GameObject GetAvailablePlayer() {
+    public GameObject GetAvailablePlayer() {
         var randomPlayerIndex = Random.Range(0, availablePlayer.Count);
 
         var player = availablePlayer[randomPlayerIndex];
         availablePlayer.Remove(player);
+
+        assignLevelColorEvent.Raise(player.GetComponent<ColorOwner>().ColorClue);
 
         return player;
     }
