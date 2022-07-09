@@ -2865,6 +2865,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 855428320}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &760754716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3909,6 +3921,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852447797}
   m_CullTransparentMesh: 1
+--- !u!1 &855428320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8684152399551644125, guid: f89be34c28a41dc44a5e9f39a48c4ae8, type: 3}
+  m_PrefabInstance: {fileID: 6465146214161241729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &859047572
 GameObject:
   m_ObjectHideFlags: 0
@@ -6511,7 +6528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1431941161
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7582,7 +7599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1623223662
 RectTransform:
   m_ObjectHideFlags: 0

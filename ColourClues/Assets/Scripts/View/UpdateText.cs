@@ -8,11 +8,16 @@ namespace View
     {
         [field: SerializeField] private TextMeshProUGUI _textMeshProUGUI;
 
-        private void Start()
+        public void UpdateIPText()
         {
             var load = gameObject.AddComponent<LoadMode>();
             var data = load.GetLoadedData();
             _textMeshProUGUI.text = "IP: " + data.TextIP ?? "No Address";
+        }
+
+        private void Start()
+        {
+            UpdateIPText();
         }
     }
 }

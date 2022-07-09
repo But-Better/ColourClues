@@ -179,8 +179,8 @@ GameObject:
   - component: {fileID: 4932290670700563009}
   - component: {fileID: 8448634669640734176}
   - component: {fileID: 8967475105778893909}
-  - component: {fileID: 7925028784455871293}
-  - component: {fileID: 5141772308126686476}
+  - component: {fileID: 524941741754712699}
+  - component: {fileID: 8443012614124023106}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7925028784455871293
+--- !u!114 &524941741754712699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMeshProUGUI: {fileID: 4352179281544725774}
---- !u!114 &5141772308126686476
+--- !u!114 &8443012614124023106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,6 +292,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8684152399551644125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b5efee84e4c412aab86adfb6da95eb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ae167bddc5547589943c8fcee4ec7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
