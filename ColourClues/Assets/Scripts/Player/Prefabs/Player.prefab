@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -5221032237227872882}
   - component: {fileID: -8847958841320539339}
   - component: {fileID: 3762160836684959986}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  movementSpeed: 50
+  movementSpeed: 35
   jumpForce: 400
   movementSmoothing: 0.05
   airControl: 1

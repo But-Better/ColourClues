@@ -4,6 +4,8 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class NetworkMovementScript : NetworkBehaviour
 {
 
@@ -38,17 +40,26 @@ public class NetworkMovementScript : NetworkBehaviour
 		_jump = Input.GetAxisRaw("Vertical") > 0;
 	}
 
+	// Only run on Client
+	[Client]
 	private void FixedUpdate()
 	{
-		if (!isLocalPlayer)
-		{
-			return;
-		}
+		if (!hasAuthority) { return; }
 		CheckForGround();
 		
-		Move(_horizontalMovement * Time.fixedDeltaTime, _jump);
+		MoveCmd();
 	}
 
+	// Call From Client, to run on Server
+	[Command]
+	private void MoveCmd()
+	{
+		// validate that movement request comes from right client
+		Move(_horizontalMovement * Time.fixedDeltaTime, _jump);
+	}
+	
+	// Call from server, run on Client
+	[ClientRpc]
 	private void Move(float move, bool jump)
 	{
 		//only control the player if grounded or airControl is turned on
@@ -86,13 +97,12 @@ public class NetworkMovementScript : NetworkBehaviour
 		var rayMostLeftDown = Physics2D.Raycast(mostLeft, Vector2.down, Single.PositiveInfinity, groundLayer.value);
 		var rayMostRightDown = Physics2D.Raycast(mostRight, Vector2.down, Single.PositiveInfinity, groundLayer.value);
 
-		var distanceToGround = _mBoxCollider.size.y;
-
-
-		_grounded = anyRayHasDistanceOf(distanceToGround, rayMiddleDown, rayMostLeftDown, rayMostRightDown);
+		var distanceToGround = (_mBoxCollider.size.y / 2) + 0.1f;
+		
+		_grounded = allRaysUnderDistanceOf(distanceToGround, rayMiddleDown, rayMostLeftDown, rayMostRightDown);
 	}
 
-	private bool anyRayHasDistanceOf(float maxDistance, params RaycastHit2D[] rays)
+	private bool allRaysUnderDistanceOf(float maxDistance, params RaycastHit2D[] rays)
 	{
 		return rays.Any(ray => ray.distance <= maxDistance);
 	}

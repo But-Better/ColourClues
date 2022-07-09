@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using DefaultNamespace.Models;
 using Event;
+using Mirror;
 using UnityEngine;
-public class LevelManager : MonoBehaviour {
+public class LevelManager : NetworkBehaviour {
 
     [SerializeField] private List<GameObject> availablePlayer = new List<GameObject>();
 
