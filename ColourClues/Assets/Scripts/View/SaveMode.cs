@@ -66,10 +66,5 @@ public class SaveMode : MonoBehaviour
         writer.Write(json);
     }
 
-    public KeysDto GetLoadedData()
-    {
-        using var reader = new StreamReader(PersistentPath);
-        var json = reader.ReadToEnd();
-        return JsonUtility.FromJson<KeysDto>(json);
-    }
+
 }
