@@ -278,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 17794104}
-  - component: {fileID: 17794103}
+  - component: {fileID: 17794105}
   m_Layer: 0
   m_Name: GreenPit1TurnOn
   m_TagString: Untagged
@@ -286,20 +286,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &17794103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17794102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7643dc6b5af4e5288f574e80297139e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultOnItem: {fileID: 1368938837}
-  defaultOffItem: {fileID: 1668216309}
 --- !u!4 &17794104
 Transform:
   m_ObjectHideFlags: 0
@@ -317,6 +303,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &17794105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17794102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0272e282061e4a949ce96b059505c54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatableItem: {fileID: 1668216309}
+  defaultOn: 0
 --- !u!1 &57553950
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,7 +783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249141900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.481, y: -1.484, z: 0}
+  m_LocalPosition: {x: 3.955, y: -0.252, z: 0}
   m_LocalScale: {x: 0.16, y: 0.16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47053,7 +47053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activatableColor: {fileID: 11400000, guid: 3077016aa9ffb02409a715bd116ecc55, type: 2}
-  activatableObject: {fileID: 1433226925}
+  activatableObject: {fileID: 1433226927}
 --- !u!114 &644532184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47739,7 +47739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 931520832}
-  - component: {fileID: 931520831}
+  - component: {fileID: 931520833}
   m_Layer: 0
   m_Name: GreenPit2TurnOn
   m_TagString: Untagged
@@ -47747,20 +47747,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &931520831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931520830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7643dc6b5af4e5288f574e80297139e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultOnItem: {fileID: 1368938837}
-  defaultOffItem: {fileID: 2015485749}
 --- !u!4 &931520832
 Transform:
   m_ObjectHideFlags: 0
@@ -47778,6 +47764,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &931520833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931520830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0272e282061e4a949ce96b059505c54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatableItem: {fileID: 2015485749}
+  defaultOn: 0
 --- !u!1 &934232188
 GameObject:
   m_ObjectHideFlags: 0
@@ -57968,7 +57968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activatableColor: {fileID: 11400000, guid: 3077016aa9ffb02409a715bd116ecc55, type: 2}
-  activatableObject: {fileID: 931520831}
+  activatableObject: {fileID: 931520833}
 --- !u!114 &1191634615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58624,7 +58624,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349700147}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.323, y: -1.485, z: 0}
+  m_LocalPosition: {x: 4.226, y: -0.357, z: 0}
   m_LocalScale: {x: 0.16000001, y: 0.16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58947,7 +58947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1433226926}
-  - component: {fileID: 1433226925}
+  - component: {fileID: 1433226927}
   m_Layer: 0
   m_Name: GreenPit3TurnOn
   m_TagString: Untagged
@@ -58955,20 +58955,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1433226925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433226924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7643dc6b5af4e5288f574e80297139e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultOnItem: {fileID: 1368938837}
-  defaultOffItem: {fileID: 1591953965}
 --- !u!4 &1433226926
 Transform:
   m_ObjectHideFlags: 0
@@ -58986,6 +58972,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1433226927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433226924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0272e282061e4a949ce96b059505c54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatableItem: {fileID: 1591953965}
+  defaultOn: 0
 --- !u!1 &1467370233
 GameObject:
   m_ObjectHideFlags: 0
@@ -59240,7 +59240,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls: []
-  colorClue: {fileID: 11400000, guid: 617f1d1578440484988b57d31275a160, type: 2}
+  colorClue: {fileID: 11400000, guid: 3077016aa9ffb02409a715bd116ecc55, type: 2}
 --- !u!212 &1591953970
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -59499,7 +59499,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls: []
-  colorClue: {fileID: 11400000, guid: 617f1d1578440484988b57d31275a160, type: 2}
+  colorClue: {fileID: 11400000, guid: 3077016aa9ffb02409a715bd116ecc55, type: 2}
 --- !u!212 &1668216313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -60159,7 +60159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activatableColor: {fileID: 11400000, guid: 3077016aa9ffb02409a715bd116ecc55, type: 2}
-  activatableObject: {fileID: 17794103}
+  activatableObject: {fileID: 17794105}
 --- !u!114 &1736028618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60757,7 +60757,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls: []
-  colorClue: {fileID: 11400000, guid: 617f1d1578440484988b57d31275a160, type: 2}
+  colorClue: {fileID: 11400000, guid: 3077016aa9ffb02409a715bd116ecc55, type: 2}
 --- !u!212 &2015485753
 SpriteRenderer:
   m_ObjectHideFlags: 0
