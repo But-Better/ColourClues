@@ -3096,7 +3096,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2082825370}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: RegisterColorOwner
+        m_MethodName: ColorOwnerEnterGoal
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3111,7 +3111,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2082825370}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: DeregisterColorOwner
+        m_MethodName: ColorOwnerLeaveGoal
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3592,6 +3592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c214f678a14431a86bf65d1ff1f5a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  availablePlayer:
+  - {fileID: 81405176}
+  - {fileID: 721461921}
   playerNeededToFinishTheGame: 1
   alphaValueEvent: {fileID: 11400000, guid: adb963d0d3c56d94989819bf1f15e5b9, type: 2}
 --- !u!4 &2082825371
