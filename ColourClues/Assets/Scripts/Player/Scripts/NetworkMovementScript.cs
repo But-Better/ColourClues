@@ -2,11 +2,13 @@ using System;
 using System.Linq;
 using Mirror;
 using UnityEngine;
-using UnityEngine.Events;
+using View;
 
+[RequireComponent(typeof(LoadMode))]
 public class NetworkMovementScript : NetworkBehaviour
 {
 
+	private LoadMode _mMovementLoader;
 	private Rigidbody2D _mRigidbody2D;
 	private BoxCollider2D _mBoxCollider;
 	private Vector3 _velocity = Vector3.zero;
@@ -23,6 +25,7 @@ public class NetworkMovementScript : NetworkBehaviour
 	
 	private void Start()
 	{
+		_mMovementLoader = GetComponent<LoadMode>();
 		_mRigidbody2D = GetComponent<Rigidbody2D>();
 		_mBoxCollider = GetComponent<BoxCollider2D>();
 	}
@@ -34,8 +37,18 @@ public class NetworkMovementScript : NetworkBehaviour
 			return;
 		}
 
-		_horizontalMovement = Input.GetAxisRaw("Horizontal") * movementSpeed;
-		_jump = Input.GetAxisRaw("Vertical") > 0;
+		// ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+		var movementKeys = _mMovementLoader.GetLoadedData();
+
+		var jumpButtonKey = movementKeys.TextForward;
+		var leftButton = movementKeys.TextLeft;
+		var rightButton = movementKeys.TextRight;
+
+		_horizontalMovement = 
+			((Input.GetKey(leftButton) ? -1 : 0) + (Input.GetKey(rightButton) ? 1 : 0)) 
+			* movementSpeed;
+		
+		_jump = Input.GetKey(jumpButtonKey);
 	}
 
 	private void FixedUpdate()
