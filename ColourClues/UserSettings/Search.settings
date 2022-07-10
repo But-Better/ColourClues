@@ -10,9 +10,9 @@ scopes = {
 	"last_search.DE949528" = "asset store"
 	"OpenInspectorPreview.DE949528" = "0"
 	"currentGroup.DE949528" = "all"
-	"last_search.8440E7BB" = "Build"
+	"last_search.8440E7BB" = "input"
 	"OpenInspectorPreview.8440E7BB" = "0"
-	"currentGroup.8440E7BB" = "all"
+	"currentGroup.8440E7BB" = "settings"
 }
 providers = {
 	adb = {
