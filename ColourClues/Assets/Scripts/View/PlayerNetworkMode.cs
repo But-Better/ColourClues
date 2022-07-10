@@ -8,21 +8,21 @@ public class PlayerNetworkMode : MonoBehaviour
 
     public void Change(bool mode)
     {
+        Debug.Log($"Change Server to Client mode status: {mode}");
         ServerOrClient = mode;
     }
-        
+
     public static PlayerNetworkMode Instance { get; private set; }
 
-    private void Awake() 
+    private void Awake()
     {
-        if (Instance != null && Instance != this) 
-        { 
-            Destroy(this); 
-        } 
-        else 
-        { 
-            Instance = this; 
-        } 
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 }
-
