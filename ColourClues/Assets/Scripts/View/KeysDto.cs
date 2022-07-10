@@ -11,5 +11,11 @@ namespace View
         public string TextRight;
         public string TextPause;
         public string TextEmotes;
+        public string TextIP;
+        
+        public KeyCode ToKeyCode(string value)
+        {
+            return (KeyCode)Enum.Parse(typeof(KeyCode), value);
+        }
     }
 }

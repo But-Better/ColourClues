@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    [field: SerializeField] public string _sceneName;
-
-    void loadScene()
+    public void loadScene(int index)
     {
-        SceneManager.LoadScene(_sceneName);
+        Debug.Log("index was loaded");
+        SceneManager.LoadScene(index);
     }
 }
  
