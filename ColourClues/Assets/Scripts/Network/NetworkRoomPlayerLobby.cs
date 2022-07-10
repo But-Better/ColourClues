@@ -6,15 +6,13 @@ namespace Player.Scripts
 {
     public class NetworkRoomPlayerLobby : NetworkBehaviour
     {
-        public string NetworkAddress { get; set;}
+        public static event Action OnClientConnect;
+        public static event Action OnClientDisconnected;
 
         public void StartHost()
         {
             throw new System.NotImplementedException();
         }
-
-        public static event Action OnClientConnect;
-        public static event Action OnClientDisconnected;
 
         private static void OnOnClientConnect()
         {

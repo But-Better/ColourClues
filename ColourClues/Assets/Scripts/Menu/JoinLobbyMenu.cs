@@ -9,7 +9,7 @@ namespace Menu
 {
     public class JoinLobbyMenu : MonoBehaviour
     {
-        [SerializeField] private NetworkRoomPlayerLobby networkManager = null;
+        [SerializeField] private CustomRoomNetworkManager networkManager = null;
         
         [Header("UI")]
         [SerializeField] private GameObject landingPagePanel = null;
@@ -33,8 +33,14 @@ namespace Menu
         {
             string ipAddress = ipAddressInputField.text;
 
-            networkManager.NetworkAddress = ipAddress;
-            networkManager.OnStartClient();
+            if (string.IsNullOrEmpty(ipAddress))
+            {
+                
+                return;
+            }
+            
+            networkManager.networkAddress = ipAddress;
+            networkManager.StartClient();
 
             joinButton.interactable = false;
         }

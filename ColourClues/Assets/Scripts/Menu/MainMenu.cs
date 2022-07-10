@@ -5,7 +5,7 @@ namespace Menu
 {
     public class MainMenu : MonoBehaviour
     {
-        [SerializeField] private NetworkRoomPlayerLobby networkManagerLobby = null;
+        [SerializeField] private CustomRoomNetworkManager networkManagerLobby = null;
 
         [Header("UI")] [SerializeField] private GameObject landingPagePanel = null;
 

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Player.Scripts
 {
-    public class PlayerNameInput
+    public class PlayerNameInput: MonoBehaviour
     {
         [Header("UI")]
         [SerializeField] private TMP_InputField nameInputField = null;
@@ -23,13 +23,14 @@ namespace Player.Scripts
 
             nameInputField.text = defaultName;
 
-            SetPlayerName(defaultName);
+            ValidatePlayerName(defaultName);
         }
 
-        private void SetPlayerName(string name)
+        public void ValidatePlayerName(string playerName)
         {
             // validate name
-            continueButton.interactable = !string.IsNullOrEmpty(name);
+            Debug.Log(playerName);
+            continueButton.interactable = !string.IsNullOrEmpty(playerName);
         }
 
         public void SavePlayerName()
