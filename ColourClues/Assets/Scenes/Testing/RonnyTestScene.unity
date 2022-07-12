@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 81405181}
   - component: {fileID: 81405180}
   - component: {fileID: 81405182}
+  - component: {fileID: 81405183}
   m_Layer: 0
   m_Name: TestPlayer 1
   m_TagString: Untagged
@@ -198,7 +199,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
+  m_Sprite: {fileID: 1063885269, guid: 13397dab2d5ce95408b20a8c7eff90d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -217,7 +218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81405176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.11, y: -2.68, z: 0}
+  m_LocalPosition: {x: -3.1, y: -2.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241,7 +242,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.58, y: 0.58}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -285,6 +286,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpawnedEvent: {fileID: 11400000, guid: b89d6110838e2f04e96a4fb37780c2cd, type: 2}
   playerDespawnedEvent: {fileID: 11400000, guid: 4e673d56d479bf149ac9e1538dd171f1, type: 2}
+--- !u!95 &81405183
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81405176}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0a31a1345bd770459ed360c2e7275e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &84348005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,6 +1586,7 @@ GameObject:
   - component: {fileID: 721461924}
   - component: {fileID: 721461923}
   - component: {fileID: 721461922}
+  - component: {fileID: 721461928}
   m_Layer: 0
   m_Name: TestPlayer 2
   m_TagString: Untagged
@@ -1603,7 +1625,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.58, y: 0.58}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1687,7 +1709,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
+  m_Sprite: {fileID: 1063885269, guid: 13397dab2d5ce95408b20a8c7eff90d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1706,13 +1728,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721461921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.53, y: -2.71, z: 0}
+  m_LocalPosition: {x: 5.52, y: -2.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &721461928
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721461921}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ecc93c5982b5ebc4b835f9fccfb4a236, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &959056536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,7 +3096,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2082825370}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: RegisterColorOwner
+        m_MethodName: ColorOwnerEnterGoal
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3069,7 +3111,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2082825370}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: DeregisterColorOwner
+        m_MethodName: ColorOwnerLeaveGoal
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3550,6 +3592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c214f678a14431a86bf65d1ff1f5a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  availablePlayer:
+  - {fileID: 81405176}
+  - {fileID: 721461921}
   playerNeededToFinishTheGame: 1
   alphaValueEvent: {fileID: 11400000, guid: adb963d0d3c56d94989819bf1f15e5b9, type: 2}
 --- !u!4 &2082825371
