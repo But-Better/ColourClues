@@ -5,6 +5,8 @@ using UnityEngine;
 using View;
 
 [RequireComponent(typeof(LoadMode))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class NetworkMovementScript : NetworkBehaviour
 {
 

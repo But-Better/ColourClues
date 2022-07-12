@@ -47,6 +47,11 @@ public class LevelManager : NetworkBehaviour {
         return player;
     }
 
+    public int MaxAvailablePlayers()
+    {
+        return availablePlayer.Count;
+    }
+    
     private IEnumerator Fade() {
         var alpha = 0f;
 
