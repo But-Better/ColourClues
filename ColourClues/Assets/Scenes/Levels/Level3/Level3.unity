@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.48
-  UPReturnPosition: -0.8
-  DOWNReturnPosition: -1.2
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.6
 --- !u!114 &12417220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1271,8 +1271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.48
-  UPReturnPosition: -0.8
-  DOWNReturnPosition: -1.2
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.6
 --- !u!114 &138651620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1484,8 +1484,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.48
-  UPReturnPosition: -0.8
-  DOWNReturnPosition: -1.2
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.6
 --- !u!114 &168435498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2017,8 +2017,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.48
-  UPReturnPosition: -0.8
-  DOWNReturnPosition: -1.2
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.6
 --- !u!114 &394224308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2196,8 +2196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.48
-  UPReturnPosition: -0.8
-  DOWNReturnPosition: -1.2
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.6
 --- !u!114 &436310898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48996,8 +48996,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.48
-  UPReturnPosition: -0.8
-  DOWNReturnPosition: -1.2
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.6
 --- !u!114 &683706658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49851,8 +49851,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.48
-  UPReturnPosition: -0.8
-  DOWNReturnPosition: -1.2
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.6
 --- !u!114 &925903861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50362,8 +50362,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.48
-  UPReturnPosition: -0.8
-  DOWNReturnPosition: -1.2
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.6
 --- !u!114 &935749187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62492,7 +62492,7 @@ GameObject:
   - component: {fileID: 1553638751}
   - component: {fileID: 1553638750}
   m_Layer: 0
-  m_Name: fallingCeiling1
+  m_Name: fallingCeiling11
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -62568,8 +62568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.48
-  UPReturnPosition: -0.8
-  DOWNReturnPosition: -1.2
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.6
 --- !u!114 &1553638753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63586,8 +63586,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.48
-  UPReturnPosition: -0.8
-  DOWNReturnPosition: -1.2
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.6
 --- !u!114 &1729665770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64087,8 +64087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.48
-  UPReturnPosition: -0.8
-  DOWNReturnPosition: -1.2
+  UPReturnPosition: -1
+  DOWNReturnPosition: -1.6
 --- !u!114 &1794866519
 MonoBehaviour:
   m_ObjectHideFlags: 0
