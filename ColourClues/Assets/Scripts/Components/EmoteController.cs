@@ -5,7 +5,7 @@ using UnityEngine;
 public class EmoteController : MonoBehaviour {
 
     [Serializable]
-    public class EmoJiData {
+    public class EmojiData {
         [SerializeField] private Sprite sprite;
         [SerializeField] private Vector2 direction;
 
@@ -19,7 +19,7 @@ public class EmoteController : MonoBehaviour {
     [SerializeField] private float openingDistance = 10f;
     [SerializeField] private float startRatio = 0.1f;
     [SerializeField] private float openingSpeed = 1f;
-    [SerializeField] private List<EmoJiData> emojiDatas;
+    [SerializeField] private List<EmojiData> emojiDatas;
 
     private List<GameObject> buttons = new List<GameObject>();
 
