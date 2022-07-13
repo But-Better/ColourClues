@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using Mirror;
@@ -10,20 +11,20 @@ namespace Network
 {
     [RequireComponent(typeof(LoadMode))]
     [RequireComponent(typeof(PlayerNetworkMode))]
+    [RequireComponent(typeof(NetworkIdentity))]
     public class CustomLevelLoadNetworkManager : NetworkManager
     {
         private LoadMode _mLoadMode;
         private CustomLevelLoadNetworkManager _mNetworkManager = null;
+        private NetworkIdentity _mNetworkIdentity = null;
+        [SerializeField] private LevelManager levelManager = null;
+        
         
         public bool currentlyConnecting { get; private set; }
-        
         public int currentlyConnected { get; private set; }
 
         [SerializeField] private bool serverMode = false;
-
         [SerializeField] private int minPlayers = 2;
-
-        [SerializeField] private Transform initialSpawnPoint;
         
         public static event Action ConnectingAsClient;
         public static event Action ConnectedToServer;
@@ -35,7 +36,8 @@ namespace Network
             
             _mLoadMode = GetComponent<LoadMode>();
             _mNetworkManager = GetComponent<CustomLevelLoadNetworkManager>();
-
+            _mNetworkIdentity = GetComponent<NetworkIdentity>();
+            
             if (serverMode)
             {
                 _mNetworkManager.StartHost();
@@ -57,7 +59,12 @@ namespace Network
         public override void OnServerAddPlayer(NetworkConnectionToClient conn)
         {
             // add player at correct spawn position
-            Transform start = initialSpawnPoint;
+            Tuple<GameObject, Transform> playerTpl = levelManager.GetAvailablePlayer(conn);
+            
+            Transform start = playerTpl.Item2;
+            playerPrefab = playerTpl.Item1;
+
+            Debug.Log("created player");
             
             GameObject player = Instantiate(playerPrefab, start.position, start.rotation);
             NetworkServer.AddPlayerForConnection(conn, player);

@@ -1,18 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using DefaultNamespace.Models;
 using Event;
 using Mirror;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 public class LevelManager : NetworkBehaviour {
 
-    [SerializeField] private List<GameObject> availablePlayer = new List<GameObject>();
+    [SyncVar] [SerializeField] private List<GameObject> availablePlayer = new();
 
-    [SerializeField] private int playerNeededToFinishTheGame;
-    [SerializeField] private AlphaValueEvent alphaValueEvent;
+    [SyncVar] [SerializeField] private int playerNeededToFinishTheGame;
+    [SyncVar] [SerializeField] private AlphaValueEvent alphaValueEvent;
+    
     [SerializeField] private ColorClueEvent assignLevelColorEvent;
 
-    private List<ColorOwner> goalReachedPlayers = new List<ColorOwner>();
+    [SyncVar] [SerializeField] private GameObject genericPlayerPrefab;
+    
+    private List<ColorOwner> goalReachedPlayers = new();
 
     public void ColorOwnerEnterGoal(ColorOwner colorOwner) {
         if(!goalReachedPlayers.Contains(colorOwner)) {
@@ -35,16 +42,26 @@ public class LevelManager : NetworkBehaviour {
 
         StartCoroutine(Fade());
     }
-
-    public GameObject GetAvailablePlayer() {
+    
+    public Tuple<GameObject, Transform> GetAvailablePlayer(NetworkConnectionToClient conn) {
         var randomPlayerIndex = Random.Range(0, availablePlayer.Count);
+        
+        var spawnPoint = availablePlayer[randomPlayerIndex];
+        
+        var player = genericPlayerPrefab;
 
-        var player = availablePlayer[randomPlayerIndex];
         availablePlayer.Remove(player);
+        
+        var neededColor = spawnPoint.GetComponent<ColorOwner>().ColorClue;
 
-        assignLevelColorEvent.Raise(player.GetComponent<ColorOwner>().ColorClue);
+        if (isLocalPlayer)
+        {
+            assignLevelColorEvent.Raise(neededColor);
+        }
 
-        return player;
+        player.GetComponent<ColorOwner>().ColorClue = neededColor;
+        
+        return new Tuple<GameObject, Transform>(player, spawnPoint.transform);
     }
 
     public int MaxAvailablePlayers()
