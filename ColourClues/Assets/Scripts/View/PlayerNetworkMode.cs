@@ -6,10 +6,13 @@ public class PlayerNetworkMode : MonoBehaviour
 {
     [field: SerializeField] private bool ServerOrClient { get; set; }
 
+    public bool status { get; private set; }
+
     public void Change(bool mode)
     {
         Debug.Log($"Change Server to Client mode status: {mode}");
         ServerOrClient = mode;
+        status = mode;
     }
 
     public static PlayerNetworkMode Instance { get; private set; }
