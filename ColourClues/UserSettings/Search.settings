@@ -1,15 +1,15 @@
 trackSelection = true
 fetchPreview = true
-wantsMore = false
+defaultFlags = 0
 keepOpen = false
 queryFolder = "Assets"
 onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.DE949528" = "asset store"
+	"last_search.DE949528" = "preferences"
 	"OpenInspectorPreview.DE949528" = "0"
-	"currentGroup.DE949528" = "all"
+	"currentGroup.DE949528" = "menu"
 	"last_search.8440E7BB" = "input"
 	"OpenInspectorPreview.8440E7BB" = "0"
 	"currentGroup.8440E7BB" = "settings"
@@ -56,7 +56,10 @@ providers = {
 		defaultAction = null
 	}
 }
+objectSelectors = {
+}
 recentSearches = [
+	"rid"
 ]
 searchItemFavorites = [
 ]
