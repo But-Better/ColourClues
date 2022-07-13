@@ -13,6 +13,10 @@ public class NetworkMovementScript : NetworkBehaviour
 	private BoxCollider2D _mBoxCollider;
 	private Vector3 _velocity = Vector3.zero;
 	private bool _grounded = true;
+
+	public bool Grounded => _grounded;
+	public Vector3 Velocity => _velocity;
+
 	private float _horizontalMovement;
 	private bool _jump;
 
