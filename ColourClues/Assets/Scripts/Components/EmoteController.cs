@@ -22,6 +22,7 @@ public class EmoteController : MonoBehaviour {
     [SerializeField] private List<EmojiData> emojiDatas;
 
     private List<GameObject> buttons = new List<GameObject>();
+    private GameObject buttonParent;
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.E)) {
@@ -38,12 +39,12 @@ public class EmoteController : MonoBehaviour {
             yield break;
         }
 
-        var parent = Instantiate(new GameObject());
-        parent.AddComponent<FollowPlayerScript>().playerObject = gameObject;
+        buttonParent = Instantiate(new GameObject());
+        buttonParent.AddComponent<FollowPlayerScript>().playerObject = gameObject;
 
         for(int index = 0; index < emojiDatas.Count; index++) {
             var emojiData = emojiDatas[index];
-            var button = Instantiate(spritePrefab, parent.transform, false);
+            var button = Instantiate(spritePrefab, buttonParent.transform, false);
 
             button.transform.localPosition = emojiData.Direction * (openingDistance * startRatio);
             button.transform.localScale = new Vector3(startRatio, startRatio, startRatio);
@@ -94,5 +95,9 @@ public class EmoteController : MonoBehaviour {
         }
 
         buttons.Clear();
+
+        if(buttonParent != null) {
+            Destroy(buttonParent);
+        }
     }
 }

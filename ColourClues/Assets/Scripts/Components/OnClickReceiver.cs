@@ -7,7 +7,6 @@ public class OnClickReceiver : MonoBehaviour {
     public int index;
 
     private void OnMouseDown() {
-        print("dsabihsda");
         onClickEvent?.Invoke(index);
     }
 }
