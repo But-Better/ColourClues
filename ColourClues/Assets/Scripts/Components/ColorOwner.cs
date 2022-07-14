@@ -3,7 +3,7 @@ using Mirror;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class ColorOwner : MonoBehaviour {
+public class ColorOwner : NetworkBehaviour {
     [SerializeField] private ColorClue colorClue;
 
     public ColorClue ColorClue
