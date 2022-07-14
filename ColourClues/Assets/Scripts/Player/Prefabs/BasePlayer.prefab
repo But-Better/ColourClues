@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3762160836684959986}
   - component: {fileID: 8711338710268730944}
   m_Layer: 7
-  m_Name: Player
+  m_Name: BasePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0133b2a1c50ad4fb699ff9d8063800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorClue: {fileID: 11400000, guid: 617f1d1578440484988b57d31275a160, type: 2}
+  syncMode: 0
+  syncInterval: 0.1
+  colorClue: {fileID: 0}
 --- !u!50 &2315408374098638633
 Rigidbody2D:
   serializedVersion: 4
@@ -181,7 +183,7 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   visible: 0
-  m_AssetId: a8fa66eb0b413ee4cb846787717aafdb
+  m_AssetId: 0f67d08a7a61e4245a2bcff5adbbbfd9
   hasSpawned: 0
 --- !u!114 &-8847958841320539339
 MonoBehaviour:
@@ -197,8 +199,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  movementSpeed: 5
-  jumpForce: 10
+  movementSpeed: 6
+  jumpForce: 55
   movementSmoothing: 0.05
   airControl: 1
   groundLayer:

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using Mirror;
-using Unity.VisualScripting;
 using UnityEngine;
 using View;
 
@@ -18,8 +16,7 @@ namespace Network
         private CustomLevelLoadNetworkManager _mNetworkManager = null;
         private NetworkIdentity _mNetworkIdentity = null;
         [SerializeField] private LevelManager levelManager = null;
-        
-        
+
         public bool currentlyConnecting { get; private set; }
         public int currentlyConnected { get; private set; }
 
@@ -50,26 +47,20 @@ namespace Network
                 var addressToConnectTo = "localhost";
                 _mNetworkManager.networkAddress = addressToConnectTo;
 
-                Debug.Log($"trying to connect to {_mNetworkManager.networkAddress}"); 
+                Debug.Log($"trying to connect to {_mNetworkManager.networkAddress}");
+
                 _mNetworkManager.StartClient();
                 ConnectingAsClient?.Invoke();
             }
         }
 
-        public override void OnServerAddPlayer(NetworkConnectionToClient conn)
+        public override void OnStartServer()
         {
-            // add player at correct spawn position
-            Tuple<GameObject, Transform> playerTpl = levelManager.GetAvailablePlayer(conn);
+            base.OnStartServer();
             
-            Transform start = playerTpl.Item2;
-            playerPrefab = playerTpl.Item1;
-
-            Debug.Log("created player");
-            
-            GameObject player = Instantiate(playerPrefab, start.position, start.rotation);
-            NetworkServer.AddPlayerForConnection(conn, player);
+            NetworkServer.RegisterHandler<CreateColorOwnerGameObjectMessage>(OnCreateCharacter);
         }
-        
+
         [Server]
         public override void OnServerReady(NetworkConnectionToClient conn)
         {
@@ -82,7 +73,7 @@ namespace Network
         public override void OnServerConnect(NetworkConnectionToClient conn)
         {
             ConnectionUpdate?.Invoke();
-           
+
             currentlyConnected++;
             base.OnServerConnect(conn);
         }
@@ -90,6 +81,7 @@ namespace Network
         public override void OnServerDisconnect(NetworkConnectionToClient conn)
         {
             ConnectionUpdate?.Invoke();
+
             currentlyConnected--;
             base.OnServerDisconnect(conn);
         }
@@ -98,9 +90,31 @@ namespace Network
         {
             ConnectedToServer?.Invoke();
             Debug.Log("Connected To Server");
+            // add player at correct spawn position
+
             base.OnClientConnect();
+
+            bool isLocal = _mNetworkIdentity.netId == 0;
+            
+            var player = levelManager.GetAvailablePlayer(isLocal);
+            playerPrefab = player;
+            var playerGenerationMessage = new CreateColorOwnerGameObjectMessage(player);
+
+            NetworkClient.Send(playerGenerationMessage);
         }
 
+        void OnCreateCharacter(NetworkConnectionToClient conn, CreateColorOwnerGameObjectMessage player)
+        {
+            var playerObject = playerPrefab;
+            
+            Debug.Log("created player");
+            
+            var playerCharacter = Instantiate(playerObject);
+            playerCharacter.transform.position = new Vector3(-1.52f, 0, 0);
+            
+            NetworkServer.AddPlayerForConnection(conn, playerCharacter);
+        }
+        
         private static string GetLocalIPAddress()
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
@@ -125,6 +139,16 @@ namespace Network
             }
 
             minPlayers = nbr;
+        }
+
+        public struct CreateColorOwnerGameObjectMessage: NetworkMessage
+        {
+            public GameObject PlayerObject;
+
+            public CreateColorOwnerGameObjectMessage(GameObject playerObject)
+            {
+                PlayerObject = playerObject;
+            }
         }
     }
 }
