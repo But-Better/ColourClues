@@ -17,7 +17,7 @@ public class SaveMode : MonoBehaviour
     [field: SerializeField] private TextMeshProUGUI textPause;
     [field: SerializeField] private TextMeshProUGUI textEmotes;
     [field: SerializeField] private TextMeshProUGUI textIP;
-    
+
     private string PersistentPath { get; set; }
 
     private string Path { get; set; }
@@ -26,18 +26,18 @@ public class SaveMode : MonoBehaviour
     {
         SetPaths();
     }
-    
+
     public void Save()
     {
         var newDto = new KeysDto
         {
-            TextForward = CleanUp(textForward),
-            TextBackward = CleanUp(textBackward),
-            TextLeft = CleanUp(textLeft),
-            TextRight = CleanUp(textRight),
-            TextPause = CleanUp(textPause),
-            TextEmotes = CleanUp(textEmotes),
-            TextIP = CleanUp(textIP),
+            TextForward = CleanUp(textForward.text),
+            TextBackward = CleanUp(textBackward.text),
+            TextLeft = CleanUp(textLeft.text),
+            TextRight = CleanUp(textRight.text),
+            TextPause = CleanUp(textPause.text),
+            TextEmotes = CleanUp(textEmotes.text),
+            TextIP = CleanUp(textIP.text),
         };
         Debug.Log(newDto.TextBackward);
         Debug.Log(newDto.TextForward);
@@ -45,9 +45,17 @@ public class SaveMode : MonoBehaviour
         SaveData(newDto);
     }
 
-    private string CleanUp(TextMeshProUGUI o)
+    private string CleanUp(string o)
     {
-        return o.text.Replace("\n", "").Replace("\r", "");
+        var removeNr = o.Replace("\n", "").Replace("\r", "");
+        var toChar = removeNr.ToCharArray();
+        string newString = null;
+        for (var index = 0; index < toChar.Length-1; index++)
+        {
+            var c = toChar[index];
+            newString += c.ToString();
+        }
+        return newString;
     }
 
     private void SetPaths()
@@ -58,6 +66,17 @@ public class SaveMode : MonoBehaviour
 
     private void SaveData(KeysDto dto)
     {
+        try
+        {
+            var code = (KeyCode)Enum.Parse(typeof(KeyCode), dto.TextForward);
+            Debug.Log(code);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+
         Debug.Log("Saving Data at " + PersistentPath);
         var json = JsonUtility.ToJson(dto);
         Debug.Log(json);
@@ -65,6 +84,5 @@ public class SaveMode : MonoBehaviour
         using var writer = new StreamWriter(PersistentPath);
         writer.Write(json);
     }
-
-
+    
 }
