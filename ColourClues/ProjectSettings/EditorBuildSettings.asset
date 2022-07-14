@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Testing/NetworkTesting/ExampleNetworkScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 2408e37c09108744b8bd1efa072e90c3
@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Tutorial/MovingTut/MovingTutorial.unity
     guid: df2fae6521cc24f9e913397fe34e21c3
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3/Level3.unity
+    guid: 5e7b3716106eb497cb6eed7f7f636549
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4/Level4.unity
+    guid: bb5a476e25c44463497b1f74378d5703
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level5/Level5.unity
+    guid: b03f25d2acce64b888ed2dc3d080d7c7
   m_configObjects: {}

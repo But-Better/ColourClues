@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 81405179}
   - component: {fileID: 81405178}
+  - component: {fileID: 81405184}
   - component: {fileID: 81405177}
   - component: {fileID: 81405181}
   - component: {fileID: 81405180}
@@ -306,6 +307,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &81405184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81405176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7322cdd9b41a395449ebbef54d2d6381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spritePrefab: {fileID: 4555863569599898709, guid: db368c83de116424a89a9cf6847583e8, type: 3}
+  emojiPrefab: {fileID: 7166905201473769816, guid: 26c60a8c35f5a71449539c9f0987a511, type: 3}
+  emojiYOffset: 1
+  openingDistance: 0.7
+  startRatio: 0.3
+  openingSpeed: 5
+  emojiDatas:
+  - sprite: {fileID: 21300000, guid: dac8e0a6b2574924f9df2d26f2529f25, type: 3}
+    direction: {x: -1, y: 0}
+  - sprite: {fileID: 21300000, guid: fa9121675375d5f41a16fb30993bd83b, type: 3}
+    direction: {x: 0.5, y: 1}
+  - sprite: {fileID: 21300000, guid: 20af6a6b2bd850a4096a175b336e5dc1, type: 3}
+    direction: {x: -0.5, y: 1}
+  - sprite: {fileID: 21300000, guid: 1a0508d633e409b4492ce8fd5aff3dc5, type: 3}
+    direction: {x: 1, y: 0}
 --- !u!1 &84348005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,6 +3625,7 @@ MonoBehaviour:
   - {fileID: 721461921}
   playerNeededToFinishTheGame: 1
   alphaValueEvent: {fileID: 11400000, guid: adb963d0d3c56d94989819bf1f15e5b9, type: 2}
+  assignLevelColorEvent: {fileID: 0}
 --- !u!4 &2082825371
 Transform:
   m_ObjectHideFlags: 0
