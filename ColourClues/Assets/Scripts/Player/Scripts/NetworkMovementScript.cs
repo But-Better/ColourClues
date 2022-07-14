@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Mirror;
+using Unity.VisualScripting;
 using UnityEngine;
 using View;
 
@@ -15,13 +16,16 @@ public class NetworkMovementScript : NetworkBehaviour
 	private bool _grounded = true;
 	private float _horizontalMovement;
 	private bool _jump;
-
+	private bool _inLadder;
+	
+	
 	[SerializeField] private float movementSpeed = 50f;
 	[SerializeField] private float jumpForce = 500f;
 	[Range(0, .3f)] [SerializeField] private float movementSmoothing = .05f;
 	[SerializeField] private bool airControl; 
 	[SerializeField] private LayerMask groundLayer;
-
+	[SerializeField] private LayerMask ladderLayer;
+	
 	private void Start()
     {
 	    _mRigidbody2D = GetComponent<Rigidbody2D>();
@@ -59,17 +63,38 @@ public class NetworkMovementScript : NetworkBehaviour
 			_mRigidbody2D.velocity = Vector3.SmoothDamp(currentVelocity, targetVelocity, ref _velocity, movementSmoothing);
 		}
 		// If the player should jump...
-		if (_grounded && jump)
+		if (_grounded && jump && !_inLadder)
 		{
 			// Add a vertical force to the player.
 			_grounded = false;
 			_mRigidbody2D.AddForce(new Vector2(0f, jumpForce));
 		}
+
+		if (_inLadder && jump)
+		{
+			_mRigidbody2D.velocity = new Vector2(_mRigidbody2D.velocity.x,movementSpeed);
+		}
+    }
+
+    public void OnTriggerStay2D(Collider2D other)
+    {
+	    if (other.gameObject.name.Contains("Ladder"))
+	    {
+		    _inLadder = true;
+	    }
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+	    if (other.gameObject.name.Contains("Ladder"))
+	    {
+		    _inLadder = false;
+	    }
     }
 
     public void OnCollisionStay2D(Collision2D other)
     {
-	    if (GameObjectIsInLayerMast(other.gameObject, groundLayer))
+	    if (GameObjectIsInLayerMask(other.gameObject, groundLayer))
 	    {
 		    _grounded = true;
 	    }
@@ -77,13 +102,13 @@ public class NetworkMovementScript : NetworkBehaviour
 
     public void OnCollisionExit2D(Collision2D other)
     {
-	    if (GameObjectIsInLayerMast(other.gameObject, groundLayer))
+	    if (GameObjectIsInLayerMask(other.gameObject, groundLayer))
 	    {
 		    _grounded = false;
 	    }
     }
 
-    private static bool GameObjectIsInLayerMast(GameObject gameObject, int layerMask)
+    private static bool GameObjectIsInLayerMask(GameObject gameObject, int layerMask)
     {
 	    return (layerMask == (layerMask | (1 << gameObject.layer)));
     }

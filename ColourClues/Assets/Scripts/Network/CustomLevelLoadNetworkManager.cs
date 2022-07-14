@@ -17,6 +17,8 @@ namespace Network
         private NetworkIdentity _mNetworkIdentity = null;
         [SerializeField] private LevelManager levelManager = null;
 
+        [SerializeField] private GameObject backupObject = null;
+
         public bool currentlyConnecting { get; private set; }
         public int currentlyConnected { get; private set; }
 
@@ -100,19 +102,26 @@ namespace Network
             playerPrefab = player;
             var playerGenerationMessage = new CreateColorOwnerGameObjectMessage(player);
 
+            Debug.Log(playerGenerationMessage);
+            
             NetworkClient.Send(playerGenerationMessage);
         }
 
         void OnCreateCharacter(NetworkConnectionToClient conn, CreateColorOwnerGameObjectMessage player)
         {
-            var playerObject = playerPrefab;
+            var playerObject = player.PlayerObject;
+
+            if (playerObject == null)
+            {
+                playerObject = backupObject;
+            }
             
             Debug.Log("created player");
             
-            var playerCharacter = Instantiate(playerObject);
-            playerCharacter.transform.position = new Vector3(-1.52f, 0, 0);
+            //var playerCharacter = Instantiate(playerObject);
+            //playerCharacter.transform.position = new Vector3(-1.52f, 0, 0);
             
-            NetworkServer.AddPlayerForConnection(conn, playerCharacter);
+            NetworkServer.AddPlayerForConnection(conn, playerObject);
         }
         
         private static string GetLocalIPAddress()

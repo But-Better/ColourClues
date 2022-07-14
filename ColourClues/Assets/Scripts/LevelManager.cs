@@ -9,7 +9,7 @@ using Mirror;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class LevelManager : NetworkBehaviour
+public class LevelManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _startingAvailablePlayer = new();
 
