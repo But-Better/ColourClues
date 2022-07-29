@@ -5,6 +5,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 using View;
 
+/// <summary>
+/// Adds Network Movement to an Object
+/// <see cref="NetworkBehaviour"/> (Mirror)
+/// 
+/// Requires:
+///  - <see cref="LoadMode" /> for Inputloader
+///  - <see cref="Rigidbody2D" /> for movement (velocity update and force for jumping)
+///  - <see cref="BoxCollider2D" /> for Grounddetection
+/// </summary>
 [RequireComponent(typeof(LoadMode))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]

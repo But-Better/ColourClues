@@ -1,6 +1,10 @@
 using Mirror;
 using UnityEngine;
 
+/// <summary>
+/// Adds Local Player Indication
+/// <see cref="NetworkBehaviour"/> (Mirror)
+/// </summary>
 public class LocalPlayerIndicator : NetworkBehaviour
 {
     public Color colorIndicator = Color.red;

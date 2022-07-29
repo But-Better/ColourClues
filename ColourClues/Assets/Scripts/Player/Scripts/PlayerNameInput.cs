@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace Player.Scripts
 {
+    /// <summary>
+    /// Adds possibility for Player Name Input
+    /// </summary>
     public class PlayerNameInput: MonoBehaviour
     {
         [Header("UI")]
@@ -29,7 +32,6 @@ namespace Player.Scripts
         public void ValidatePlayerName(string playerName)
         {
             // validate name
-            Debug.Log(playerName);
             continueButton.interactable = !string.IsNullOrEmpty(playerName);
         }
 
