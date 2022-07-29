@@ -13,6 +13,9 @@ namespace View
 
         private string Path { get; set; }
 
+        private DateTime lastTimestampSaved = DateTime.UnixEpoch;
+        private KeysDto cachedKeysDto = null;
+        
         private void SetPaths()
         {
             Path = Application.dataPath + System.IO.Path.AltDirectorySeparatorChar + "KeysData.json";
@@ -28,6 +31,12 @@ namespace View
             
             if (PersistentPath is null)
                 Debug.LogError("PersistentPath is null");
+
+            lastTimestampSaved = File.GetLastWriteTime(PersistentPath);
+            
+            using var reader = new StreamReader(PersistentPath);
+            var json = reader.ReadToEnd();
+            cachedKeysDto = JsonUtility.FromJson<KeysDto>(json);
         }
 
         public KeysDto GetLoadedData()
@@ -37,10 +46,20 @@ namespace View
                 Debug.LogError("PersistentPath File not exists");
             }
             
+            bool changedSinceLastTime = File.GetLastWriteTime(PersistentPath)
+                .CompareTo(lastTimestampSaved) > 1;
+
+            if (!changedSinceLastTime)
+            {
+                return cachedKeysDto;
+            }
+
             using var reader = new StreamReader(PersistentPath);
             var json = reader.ReadToEnd();
-            Debug.Log(json);
-            return JsonUtility.FromJson<KeysDto>(json);
+            cachedKeysDto = JsonUtility.FromJson<KeysDto>(json);
+            
+            lastTimestampSaved = File.GetLastWriteTime(PersistentPath);
+            return cachedKeysDto;
         }
     }
 }

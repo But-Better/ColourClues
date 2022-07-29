@@ -33,8 +33,7 @@ public class OpenInGameMenu : MonoBehaviour
         {
             KeysDto = _loadMode.GetLoadedData();
         }
-
-        Debug.Log("CODe: " + string.Compare(KeysDto.TextPause, "P", StringComparison.Ordinal));
+        
         if (!Input.GetKeyDown(KeysDto.TextPause.ToLower())) return;
 
         _isPause = !_isPause;

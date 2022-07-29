@@ -1,5 +1,6 @@
 ﻿using System;
 using DefaultNamespace;
+using Mirror;
 using UnityEngine;
 public class ColorButton : MonoBehaviour {
 

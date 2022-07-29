@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:ColourClues/Assets/Scripts/Player/Prefabs/LocalPlayer.prefab.meta
+guid: 1bc8e20df8ec5254490af52858377155
+========
 guid: 7c8685e3f40ac1647a126ac32cb2c01d
+>>>>>>>> ec7226ae2cc29c86ce6ef52c0efc818ad6b99a2e:ColourClues/Assets/Scripts/Player/Prefabs/NetworkTestingPlayer.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
