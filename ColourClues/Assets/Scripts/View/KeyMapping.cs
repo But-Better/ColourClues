@@ -5,6 +5,9 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Keymapper is deprecate (Test)
+/// </summary>
 public class KeyMapping : MonoBehaviour
 {
     public KeyCode Forward { get; set; } = KeyCode.W;
