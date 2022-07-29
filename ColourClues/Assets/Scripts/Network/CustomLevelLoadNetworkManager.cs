@@ -7,6 +7,14 @@ using View;
 
 namespace Network
 {
+    /// <summary>
+    /// Customized Network Manager for Levels (<see cref="NetworkManager"/>)
+    ///
+    /// Requires:
+    ///  - <see cref="LoadMode" /> for Configuration Load
+    ///  - <see cref="PlayerNetworkMode" /> for COnfiguration Load
+    ///  - <see cref="NetworkIdentity" /> for Network Identification 
+    /// </summary>
     [RequireComponent(typeof(LoadMode))]
     [RequireComponent(typeof(PlayerNetworkMode))]
     [RequireComponent(typeof(NetworkIdentity))]

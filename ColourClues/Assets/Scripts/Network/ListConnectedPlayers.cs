@@ -2,9 +2,11 @@ using Network;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Currently Connected Player vistual Listing 
+/// </summary>
 public class ListConnectedPlayers : MonoBehaviour
 {
-
     [SerializeField] private CustomLevelLoadNetworkManager networkManager = null;
 
     [SerializeField] private TMP_Text currentNumPlayersDisplay = null;

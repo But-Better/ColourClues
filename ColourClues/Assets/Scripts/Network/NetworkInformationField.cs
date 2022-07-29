@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Network
 {
+    /// <summary>
+    /// Information Field during the connection Time
+    /// </summary>
     [RequireComponent(typeof(CustomLevelLoadNetworkManager))]
     public class NetworkInformationField : MonoBehaviour
     {
