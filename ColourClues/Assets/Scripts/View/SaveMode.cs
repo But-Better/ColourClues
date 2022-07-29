@@ -8,6 +8,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using View;
 
+/// <summary>
+/// Save data to Json for player settings
+/// </summary>
 public class SaveMode : MonoBehaviour
 {
     [field: SerializeField] private TextMeshProUGUI textForward;
