@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 namespace View
 {
+    /// <summary>
+    /// View of pressed keys ingame (not finished)
+    /// </summary>
     public class KeyPressedView : MonoBehaviour
     {
         [field: SerializeField] private TextMeshProUGUI forward;
