@@ -1,17 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using DefaultNamespace;
 using DefaultNamespace.Models;
 using Event;
+using Mirror;
 using UnityEngine;
-public class LevelManager : MonoBehaviour {
+using Random = UnityEngine.Random;
 
-    [SerializeField] private List<GameObject> availablePlayer = new List<GameObject>();
+public class LevelManager : MonoBehaviour
+{
+    [SerializeField] private List<GameObject> _startingAvailablePlayer = new();
 
     [SerializeField] private int playerNeededToFinishTheGame;
     [SerializeField] private AlphaValueEvent alphaValueEvent;
+    
     [SerializeField] private ColorClueEvent assignLevelColorEvent;
 
-    private List<ColorOwner> goalReachedPlayers = new List<ColorOwner>();
+    private List<ColorOwner> goalReachedPlayers = new();
 
     public void ColorOwnerEnterGoal(ColorOwner colorOwner) {
         if(!goalReachedPlayers.Contains(colorOwner)) {
@@ -34,18 +41,27 @@ public class LevelManager : MonoBehaviour {
 
         StartCoroutine(Fade());
     }
+    
+    public GameObject GetAvailablePlayer(bool getFirst)
+    {
+        var playerCharacter = getFirst ? 
+            _startingAvailablePlayer[0] : 
+            _startingAvailablePlayer[_startingAvailablePlayer.Count - 1];
+        
+        var color = playerCharacter.GetComponent<ColorOwner>().ColorClue;
 
-    public GameObject GetAvailablePlayer() {
-        var randomPlayerIndex = Random.Range(0, availablePlayer.Count);
+        assignLevelColorEvent.Raise(color);
 
-        var player = availablePlayer[randomPlayerIndex];
-        availablePlayer.Remove(player);
-
-        assignLevelColorEvent.Raise(player.GetComponent<ColorOwner>().ColorClue);
-
-        return player;
+        _startingAvailablePlayer.Remove(playerCharacter);
+        
+        return playerCharacter;
     }
 
+    public int MaxAvailablePlayers()
+    {
+        return _startingAvailablePlayer.Count;
+    }
+    
     private IEnumerator Fade() {
         var alpha = 0f;
 
