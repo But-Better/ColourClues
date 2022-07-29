@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Exit program
+/// </summary>
 public class ExitMode : MonoBehaviour
 {
     public void Exit()
