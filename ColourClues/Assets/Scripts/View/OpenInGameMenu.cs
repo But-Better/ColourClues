@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using View;
 
+/// <summary>
+/// Ingame settings menu
+/// </summary>
 public class OpenInGameMenu : MonoBehaviour
 {
     // Start is called before the first frame update

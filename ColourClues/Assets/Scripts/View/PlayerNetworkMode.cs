@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Create a Singleton from current network instance 
+/// </summary>
 public class PlayerNetworkMode : MonoBehaviour
 {
     [field: SerializeField] private bool ServerOrClient { get; set; }

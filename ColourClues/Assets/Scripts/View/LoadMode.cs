@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace View
 {
+    /// <summary>
+    /// Load from JSON the settings keys
+    /// </summary>
     public class LoadMode : MonoBehaviour
     {
         private string PersistentPath { get; set; }

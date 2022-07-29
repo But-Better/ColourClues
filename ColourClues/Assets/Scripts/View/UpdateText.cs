@@ -2,6 +2,9 @@
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Upate IP address has changed there input
+/// </summary>
 namespace View
 {
     public class UpdateText : MonoBehaviour
