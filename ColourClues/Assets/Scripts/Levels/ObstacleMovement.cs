@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script moves an Gameobject on the x Axis from
+/// leftReturnPosition to rightReturnPosition and back
+/// speed controls the speed of the movement
+/// </summary>
+
 public class ObstacleMovement : MonoBehaviour
 {
 
