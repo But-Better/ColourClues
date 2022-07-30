@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// this script moves an Gameobject on the y Axis from
+/// UPReturnPosition to DOWNReturnPosition and back
+/// speed controls the speed of the movement
+/// </summary>
+
 public class ObstacleMovementUPDOWN : MonoBehaviour
 {
 

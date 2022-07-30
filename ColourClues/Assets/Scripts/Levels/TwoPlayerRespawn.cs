@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This Class takes 2 possible players and 2 possible respawn locations
+/// Combined with a trigger owning Gameobject
+/// a player who triggers the object will be teleported to the according respawn location
+/// RedPlayer -> respawnLocationRed | GreenPlayer -> respawnLocationGreen
+/// </summary>
+
 public class TwoPlayerRespawn : MonoBehaviour
 {
 

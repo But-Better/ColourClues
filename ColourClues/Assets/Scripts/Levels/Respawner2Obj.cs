@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A respawn script for two objects
+/// if an object triggers the barrier it will be teleportet back to
+/// respawnLocationObj1 / respawnLocationObj2
+/// </summary>
+
 public class Respawner2Obj : MonoBehaviour
 {
 
