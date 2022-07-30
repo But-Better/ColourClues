@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This Class takes 4 possible players and 4 possible respawn locations
+/// Combined with a trigger owning Gameobject
+/// a player who triggers the object will be teleported to the according respawn location
+/// RedPlayer -> respawnLocationRed | GreenPlayer -> respawnLocationGreen and so on
+/// </summary>
+
 public class FourPlayerRespawn : MonoBehaviour
 {
 
