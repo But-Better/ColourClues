@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script makes a Gameobjects position defined by the moving object its standing on
+/// </summary>
+
 public class StickToMovingBlock : MonoBehaviour
 {
 
