@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script teleports any Gameobject that triggers the barrier
+/// to the given position TeleportPosition
+/// </summary>
+
 public class Teleporter : MonoBehaviour
 {
     public Vector3 TeleportPosition;
